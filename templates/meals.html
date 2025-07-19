@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AAROGYAM - Your Fitness Nutrition Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+         :root {
+            --primary-green: #2ecc71;
+            --dark-green: #27ae60;
+            --light-green: #a8e6cf;
+            --accent-orange: #ff6b6b;
+            --text-dark: #2c3e50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+        }
+
+        .navbar {
+            background-color: var(--primary-green);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--dark-green);
+        }
+
+        .hero {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--light-green), var(--primary-green));
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .meal-types {
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .meal-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .meal-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .meal-card h3 {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        /* New styles for tabs */
+        .diet-tabs {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .tab-button {
+            padding: 1rem 2rem;
+            border: none;
+            background-color: #eee;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tab-button.active {
+            background-color: var(--primary-green);
+            color: white;
+        }
+
+        .tab-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .plan-section {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .plan-section.active {
+            display: block;
+        }
+
+        .weekly-plan {
+            padding: 4rem 2rem;
+            background-color: white;
+        }
+
+        .weekly-plan h2 {
+            text-align: center;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+        }
+
+        .plan-table {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .plan-table th {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .plan-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .plan-table tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .plan-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .weekly-plan {
+            padding: 4rem 2rem;
+            background-color: white;
+        }
+
+        .weekly-plan h2 {
+            text-align: center;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+        }
+
+        .plan-table {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 1s ease-out;
+        }
+        /* Footer code starts here */
+footer {
+  background-color: #2c3e50; 
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+.social-icons {
+  margin: 0; 
+  padding: 0;
+  display: flex; 
+  justify-content: center;
+}
+
+.social-icon {
+  color: white; 
+  margin: 0 15px;
+  font-size: 28px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+}
+
+.social-icon:hover {
+  color: #c0392b;
+  transform: scale(1.1);
+}
+    </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="#" class="logo">AAROGYAM</a>
+    <div class="nav-links">
+        <a href="/logged_in_home">HOME</a>
+        <a href="/success_corner">LUSTRE</a>
+    </div>
+</nav>
+
+<section class="hero animate-fadeInUp">
+    <h1>Your Path to Nutritional Excellence</h1>
+    <p>Discover perfectly balanced meal plans designed for your fitness journey</p>
+</section>
+
+<section class="meal-types">
+    <div class="meal-card animate-fadeInUp">
+        <h3>Pre-Workout Meals</h3>
+        <p>Fuel your workouts with energy-rich foods like bananas, nuts, and whole grain toast.</p>
+    </div>
+    <div class="meal-card animate-fadeInUp">
+        <h3>Post-Workout Meals</h3>
+        <p>Recover and rebuild with protein-rich meals and balanced nutrients.</p>
+    </div>
+    <div class="meal-card animate-fadeInUp">
+        <h3>Breakfast Options</h3>
+        <p>Start your day strong with nutritious breakfast combinations.</p>
+    </div>
+    <div class="meal-card animate-fadeInUp">
+        <h3>Dinner Choices</h3>
+        <p>End your day with balanced, satisfying meals for optimal recovery.</p>
+    </div>
+</section>
+
+<div class="diet-tabs">
+    <div class="tab-buttons">
+        <button class="tab-button active" onclick="switchPlan('non-veg')">
+            <i class="fas fa-drumstick-bite"></i> Non-Vegetarian Plan
+        </button>
+        <button class="tab-button" onclick="switchPlan('veg')">
+            <i class="fas fa-leaf"></i> Vegetarian Plan
+        </button>
+    </div>
+
+    <div id="non-veg-plan" class="plan-section active">
+        <h2>7-Day Non-Vegetarian Diet Plan</h2>
+        <!-- Previous non-veg table content -->
+        <table class="plan-table">
+            <!-- Previous non-veg content -->
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Breakfast</th>
+                    <th>Lunch</th>
+                    <th>Pre-Workout</th>
+                    <th>Dinner (Post-Workout)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Day 1</td>
+                    <td>Oats Banana Pancakes with Protein Shake</td>
+                    <td>Multigrain roti with palak chicken and Avocado bell pepper salad</td>
+                    <td>Bananas</td>
+                    <td>Brown rice, peas paneer curry, sprouts vegetable salad</td>
+                </tr>
+                <tr>
+                  <td>Day 2</td>
+                  <td>Oatmeal with Greek Yogurt & Seasonal fruits, Mango Juice</td>
+                  <td>Multigrain roti, fish curry, vegetable salad</td>
+                  <td>Toast with Jam</td>
+                  <td>Broken wheat khichidi with carrot raita, egg white, and vegetable salad</td>
+              </tr>
+              <tr>
+                  <td>Day 3</td>
+                  <td>Poached Eggs, Whole Grain Toast, Protein Shake</td>
+                  <td>Quinoa upma, chicken and broccoli salad</td>
+                  <td>Mixed Nuts & Dried Fruits</td>
+                  <td>Lean Beef and vegetable curry, brown rice, cucumber raita, Baby Potatoes, Chocolate Milk</td>
+              </tr>
+              <tr>
+                  <td>Day 4</td>
+                  <td>Oatmeal with Honey, Apple Juice</td>
+                  <td>Grilled Chicken Salad, Whole Grain Bread</td>
+                  <td>Toast with Peanut Butter</td>
+                  <td>Methi Chicken, Brown Rice, Broccoli, Protein Shake</td>
+              </tr>
+              <tr>
+                  <td>Day 5</td>
+                  <td>Scrambled Egg, Whole Grain Toast, Smoothie</td>
+                  <td>Grilled chicken vegetable roti rolls, Green Salad</td>
+                  <td>Mixed Nuts & Dried Fruits</td>
+                  <td>Chicken Stir Fry with Spring Onion, Peppers & Broccoli, Chocolate Milk</td>
+              </tr>
+              <tr>
+                  <td>Day 6</td>
+                  <td>Oatmeal, Whole Grain Toast, Orange Juice</td>
+                  <td>Whole Grain Chicken Wrap with Black Beans, Peppers & Greek Yogurt</td>
+                  <td>Apple with peanut butter</td>
+                  <td>Keema bhurji and multigrain roti, Lean Beef Mince, Sweet Potato, Protein Shake</td>
+              </tr>
+              <tr>
+                  <td>Day 7</td>
+                  <td>Oatmeal with Nuts, Smoothie</td>
+                  <td>Whole wheat pasta with chicken and Green Salad</td>
+                  <td>Granola or Cereal</td>
+                  <td>Fish curry with boiled green peas salad, Brown Rice, Garden Peas, Milk</td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="veg-plan" class="plan-section">
+        <h2>7-Day Vegetarian Diet Plan</h2>
+        <table class="plan-table">
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Breakfast</th>
+                    <th>Lunch</th>
+                    <th>Pre-Workout</th>
+                    <th>Dinner (Post-Workout)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Day 1</td>
+                    <td>Oats and Almond Milk Smoothie Bowl with mixed berries and chia seeds</td>
+                    <td>Quinoa bowl with roasted chickpeas, mixed vegetables, and tahini dressing</td>
+                    <td>Apple slices with almond butter</td>
+                    <td>Brown rice, dal makhani, roasted vegetables, Greek yogurt</td>
+                </tr>
+                <tr>
+                    <td>Day 2</td>
+                    <td>Whole grain toast with avocado, tofu scramble, and green smoothie</td>
+                    <td>Mixed bean curry, brown rice, cucumber raita, steamed vegetables</td>
+                    <td>Trail mix with nuts and dried fruits</td>
+                    <td>Quinoa pulao with mushrooms, paneer tikka, mint chutney</td>
+                </tr>
+                <tr>
+                    <td>Day 3</td>
+                    <td>Protein pancakes made with chickpea flour, topped with fresh fruits</td>
+                    <td>Chickpea pasta with spinach pesto, grilled vegetables</td>
+                    <td>Hummus with carrot sticks</td>
+                    <td>Vegetable biryani, lentil soup, roasted cauliflower</td>
+                </tr>
+                <tr>
+                    <td>Day 4</td>
+                    <td>Overnight oats with protein powder, berries, and nuts</td>
+                    <td>Buddha bowl with sweet potato, quinoa, tofu, and tahini dressing</td>
+                    <td>Protein smoothie</td>
+                    <td>Stir-fried tofu with brown rice, mixed vegetables</td>
+                </tr>
+                <tr>
+                    <td>Day 5</td>
+                    <td>Multigrain dosa with sambar and coconut chutney</td>
+                    <td>Rajma curry, brown rice, mixed vegetable raita</td>
+                    <td>Mixed nuts and dates</td>
+                    <td>Grilled paneer steak, quinoa, roasted Brussels sprouts</td>
+                </tr>
+                <tr>
+                    <td>Day 6</td>
+                    <td>Protein smoothie bowl with granola and fresh fruits</td>
+                    <td>Lentil and spinach curry with quinoa, roasted vegetables</td>
+                    <td>Rice cakes with peanut butter</td>
+                    <td>Black bean burger with sweet potato wedges, green salad</td>
+                </tr>
+                <tr>
+                    <td>Day 7</td>
+                    <td>Chickpea flour pancakes with vegetables and mint chutney</td>
+                    <td>Mediterranean bowl with falafel, hummus, tabbouleh</td>
+                    <td>Green smoothie</td>
+                    <td>Tofu curry, brown rice, steamed broccoli, protein shake</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+ <!-- Footer Section -->
+ <footer>
+  <div class="social-icons">
+    <a href="https://www.instagram.com/" target="_blank">
+        <i class="fa-brands fa-instagram social-icon"></i>
+    </a>
+    <a href="mailto:aarogyamgymjnu@gmail.com">
+        <i class="fa-solid fa-envelope social-icon"></i>
+    </a>
+    <a href="https://www.linkedin.com/" target="_blank">
+        <i class="fa-brands fa-linkedin social-icon"></i>
+    </a>
+    <a href="https://www.facebook.com/" target="_blank">
+        <i class="fa-brands fa-facebook social-icon"></i>
+    </a>
+</div>
+     <p style="margin: 0;">© 2024 AAROGYAM. All rights reserved.</p>
+</footer>
+
+<script>
+    function switchPlan(planType) {
+        // Update button states
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.classList.remove('active');
+        });
+        event.currentTarget.classList.add('active');
+
+        // Update visible plan
+        document.querySelectorAll('.plan-section').forEach(plan => {
+            plan.classList.remove('active');
+        });
+        document.getElementById(planType + '-plan').classList.add('active');
+    }
+</script>
+</body>
+</html>

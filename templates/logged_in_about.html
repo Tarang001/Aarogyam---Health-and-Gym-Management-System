@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Management System</title>
+    <link rel="stylesheet" href={{url_for('static', filename='styles/style.css')}}>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Aarogyam</div>
+            <ul class="nav-links">
+                <li><a href="/logged_in_home">Home</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="/logged_in_plans">Plans</a></li>
+                <li><a href="#">About</a></li>
+                <li><a id="logout-btn" href="#">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <h1>Welcome to Aarogyam</h1>
+            <p>Your fitness journey starts here. Join us today!</p>
+            <a href="/login" class="btn">Get Started</a>
+        </div>
+        <div class="hero-image">
+            <img src="../static/gym_gallery.webp" alt="Gym Image">
+        </div>
+    </section>
+    <section id="services" class="section services">
+        <h2>Our Services</h2>
+        <div class="service-cards">
+            <div class="card">
+                <h3>Personal Training</h3>
+                <p>One-on-one sessions with certified trainers to reach your goals faster.</p>
+            </div>
+            <div class="card">
+                <h3>Group Classes</h3>
+                <p>Join our community in high-energy group workouts for all fitness levels.</p>
+            </div>
+            <div class="card">
+                <h3>Nutrition Plans</h3>
+                <p>Customized meal plans tailored to your fitness needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section about">
+        <h2>About Us</h2>
+        <p>Aarogyam is a state-of-the-art fitness facility providing comprehensive gym services.</p>
+        <img src="../static/gym_guy.webp" alt="Gym Overview">
+    </section>
+
+    <section id="contact" class="section contact">
+        <h2>Contact Us</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2024 Aarogyam. All rights reserved.</p>
+    </footer>
+
+      <script src="{{ url_for('static', filename='scripts/logout.js') }}"></script>
+</html>
+
+</body>
+</html>

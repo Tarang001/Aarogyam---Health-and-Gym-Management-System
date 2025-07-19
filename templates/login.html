@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Management System</title>
+    <link rel="stylesheet" href={{url_for('static', filename='styles/login.css')}}>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Aarogyam</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/plans">Plans</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <!-- LOGIN PAGE -->
+    <section class="login-container" id="login">
+        <div class="login-box">
+            <h2>Login to Aarogyam</h2>
+            <form action="/login" method="POST">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+                <label for="role">Role:</label>
+                <select id="role" name="role">
+                    <option value="admin">Admin</option>
+                    <option value="trainer">Trainer</option>
+                    <option value="user">User</option>
+                </select>
+
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+
+            <div class="new-user">
+                <p>New User? <a href="/signup">Create an account</a></p>
+            </div>
+
+            
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Aarogyam. All rights reserved.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='scripts/script_login.js') }}"></script>
+</body>
+
+</html>

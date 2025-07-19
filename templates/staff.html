@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Staff Management Dashboard</title>
+    <link rel="stylesheet" href={{url_for('static', filename='styles/staff.css')}}>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Aarogyam</div>
+      <ul class="nav-links">
+        <li><a href="/admin">Home</a></li>
+        <li><a id="logout-btn" href="#">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+    <div class="container">
+        <h1>Staff Management Dashboard</h1>
+        
+        <!-- Add Staff Form -->
+        <div class="form-section">
+            <h2>Add New Staff Member</h2>
+            <form action="/admin/add_staff" method="POST" id="addStaffForm">
+                <input type="text" name="first_name" placeholder="First Name" required>
+                <input type="text" name="last_name" placeholder="Last Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="tel" name="phone" placeholder="Phone">
+                <input type="date" name="hire_date" placeholder="Hire Date">
+                <input type="number" name="salary" placeholder="Salary">
+                <select name="department">
+                    <option value="">Select Department</option>
+                    <option value="Janitor">Janitor</option>
+                    <option value="Trainer">Trainer</option>
+                    <option value="Security">Security</option>
+                </select>
+                <button type="submit">Add Staff</button>
+            </form>
+        </div>
+
+        <!-- Search Staff Section -->
+        <div class="search-section">
+            <h2>Search Staff</h2>
+            <input type="text" id="searchQuery" placeholder="Search by Name/Email">
+            <select id="departmentFilter">
+                <option value="">All Departments</option>
+                <option value="Trainer">Trainer</option>
+                <option value="Janitor">Janitor</option>
+                <option value="Security">Security</option>
+            </select>
+            <button onclick="searchStaff()">Search</button>
+        </div>
+
+        <!-- Staff List -->
+        <div class="staff-list">
+            <h2>Staff List</h2>
+            <table id="staffTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Salary</th>
+                        <th>Department</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="staffTableBody">
+                    <!-- Dynamic content will be added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <footer>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/" target="_blank">
+            <i class="fa-brands fa-instagram social-icon"></i>
+        </a>
+        <a href="mailto:aarogyamgymjnu@gmail.com">
+            <i class="fa-solid fa-envelope social-icon"></i>
+        </a>
+        <a href="https://www.linkedin.com/" target="_blank">
+            <i class="fa-brands fa-linkedin social-icon"></i>
+        </a>
+        <a href="https://www.facebook.com/" target="_blank">
+            <i class="fa-brands fa-facebook social-icon"></i>
+        </a>
+    </div>
+         <p style="margin: 0;">© 2024 AAROGYAM. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='scripts/staff.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/logout.js') }}"></script>
+</body>
+</html>

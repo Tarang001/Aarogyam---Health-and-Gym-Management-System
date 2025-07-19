@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aarogyam Gym Plans</title>
+  <link rel="stylesheet" href={{url_for('static', filename='styles/style_plans.css' )}}>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Aarogyam</div>
+      <ul class="nav-links">
+        <li><a href="/logged_in_home">Home</a></li>
+        <li><a href="">Plans</a></li>
+        <li><a href="/logged_in_about">About</a></li>
+        <li><a id="logout-btn" href="#">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="sec_header">
+    <h1>Welcome to Aarogyam Gym</h1>
+  </section>
+
+  <section id="welcome" class="hero">
+    <div class="hero-text">
+      <h1>Hello, {{ user.name }}!</h1>
+      <p>Email: {{ user.email }}</p>
+      <p>It looks like you haven't selected a membership plan yet. Choose one below to get started on your fitness
+        journey!</p>
+    </div>
+  </section>
+
+  <section class="plans">
+    <div class="plan">
+      <h2>Monthly Plan</h2>
+      <p class="price">₹1999</p>
+      <ul>
+        <li>Access to all gym facilities</li>
+        <li>Group fitness classes</li>
+        <li>Personal trainer guidance</li>
+        <li>Flexible timing</li>
+      </ul>
+      <a style="text-decoration: none;color: white;" href="/forms"><button class="join-btn">Join Us</button></a>
+    </div>
+
+    <div class="plan highlighted">
+      <h2>Quarterly Plan</h2>
+      <p class="price">₹5899</p>
+      <ul>
+        <li>Access to all gym facilities</li>
+        <li>Group fitness classes</li>
+        <li>Personal trainer guidance</li>
+        <li>Nutrition consultation</li>
+        <li>Free fitness kit</li>
+      </ul>
+      <a style="text-decoration: none;color: white;" href="/forms"><button class="join-btn">Join Us</button></a>
+    </div>
+
+    <div class="plan">
+      <h2>Yearly Plan</h2>
+      <p class="price">₹22222</p>
+      <ul>
+        <li>Access to all gym facilities</li>
+        <li>Group fitness classes</li>
+        <li>Personal trainer guidance</li>
+        <li>Exclusive wellness programs</li>
+        <li>Free fitness kit</li>
+      </ul>
+      <a style="text-decoration: none;color: white;" href="/forms"><button class="join-btn">Join Us</button></a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Aarogyam Gym. All Rights Reserved.</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='scripts/logout.js') }}"></script>
+</body>
+
+</html>

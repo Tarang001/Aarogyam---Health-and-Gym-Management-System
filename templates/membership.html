@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Membership Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/membership.css') }}">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Aarogyam</div>
+      <ul class="nav-links">
+        <li><a href="/admin">Home</a></li>
+        <li><a id="logout-btn" href="#">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+    <div class="container">
+        <h1>Membership Management</h1>
+        
+        <!-- Add Membership Form -->
+        <div class="form-section">
+            <h2>Add New Membership</h2>
+            <form action="/admin/add_membership" method="POST" id="addMembershipForm">
+                <input type="email" name="member_id" placeholder="Email" required>
+                <select name="plan" required>
+                    <option value="">Select Plan</option>
+                    <option value="Monthly">Monthly Plan</option>
+                    <option value="Quarterly">Quarterly Plan</option>
+                    <option value="Yearly">Yearly Plan</option>
+                </select>
+                <input type="number" name="amount" placeholder="Amount" required>
+                <button type="submit">Add Membership</button>
+            </form>
+        </div>
+
+        <!-- Search Memberships -->
+        <div class="search-section">
+            <h2>Search Memberships</h2>
+            <input type="email" id="memberIdSearch" placeholder="Member ID">
+            <select id="planFilter">
+                <option value="">All Plans</option>
+                <option value="Monthly">Monthly</option>
+                <option value="Quarterly">Quarterly</option>
+                <option value="Yearly">Yearly</option>
+            </select>
+            <select id="statusFilter">
+                <option value="">All Statuses</option>
+                <option value="Active">Active</option>
+                <option value="Expired">Expired</option>
+                <option value="Pending">Pending</option>
+            </select>
+            <button onclick="searchMemberships()">Search</button>
+        </div>
+
+        <!-- Memberships Table -->
+        <div class="memberships-list">
+            <h2>Membership List</h2>
+            <table id="membershipsTable">
+                <thead>
+                    <tr>
+                        <th>Membership ID</th>
+                        <th>Member ID</th>
+                        <th>Plan</th>
+                        <th>Purchase Date</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="membershipsTableBody">
+                    <!-- Dynamic content will be added here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Update Membership Modal -->
+        <div id="updateModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Update Membership</h2>
+                <form id="updateMembershipForm">
+                    <input type="hidden" id="updateMembershipId" name="membership_id">
+                    <select name="plan" required>
+                        <option value="">Select Plan</option>
+                        <option value="Monthly">Monthly Plan</option>
+                        <option value="Quarterly">Quarterly Plan</option>
+                        <option value="Yearly">Yearly Plan</option>
+                    </select>
+                    <input type="number" name="amount" placeholder="Amount" required>
+                    <button type="submit">Update Membership</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/" target="_blank">
+            <i class="fa-brands fa-instagram social-icon"></i>
+        </a>
+        <a href="mailto:aarogyamgymjnu@gmail.com">
+            <i class="fa-solid fa-envelope social-icon"></i>
+        </a>
+        <a href="https://www.linkedin.com/" target="_blank">
+            <i class="fa-brands fa-linkedin social-icon"></i>
+        </a>
+        <a href="https://www.facebook.com/" target="_blank">
+            <i class="fa-brands fa-facebook social-icon"></i>
+        </a>
+    </div>
+         <p style="margin: 0;">© 2024 AAROGYAM. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='scripts/membership.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/logout.js') }}"></script>
+</body>
+</html>

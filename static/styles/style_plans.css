@@ -1,0 +1,240 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+  line-height: 1.6;
+  color: #333;
+}
+
+.sec_header {
+  text-align: center;
+  padding: 20px;
+  background-color: #f4f4f4;
+  color: #111010;
+  margin-bottom: 40px;
+}
+
+.sec_header h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.sec_header p {
+  font-size: 1.2em;
+}
+
+/* welcome message */
+.hero {
+  background-image: url('../gym_guy.webp');  /* Replace with your image */
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  color: white;
+  padding: 100px 20px;
+}
+
+.hero-text {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+/* Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 15px;
+}
+
+.navbar .logo {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ff9800;
+}
+
+/* Plan Section */
+.plans {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.plan {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 30%;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.plan:hover {
+  transform: scale(1.05);
+}
+
+.plan h2 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.plan .price {
+  font-size: 2em;
+  color: #e67e22;
+  margin-bottom: 20px;
+}
+
+.plan ul {
+  list-style-type: none;
+  text-align: left;
+  padding-left: 0;
+  margin-bottom: 30px;
+}
+
+.plan ul li {
+  font-size: 1em;
+  padding: 5px 0;
+}
+
+.highlighted {
+  background-color: #ffeaa7;
+  border: 2px solid #e67e22;
+}
+
+/* Join Us Button */
+.join-btn {
+  background-color: #e67e22;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.join-btn:hover {
+  background-color: #d35400;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 50px;
+  color: #777;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For tablets and medium-sized screens */
+@media (max-width: 768px) {
+  .plans {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .plan {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+  .logo {
+    margin-bottom: 1em;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links li {
+    margin-left: 0;
+    margin-bottom: 15px;  /* Add margin between links */
+  }
+}
+
+/* For mobile devices */
+@media (max-width: 480px) {
+  .sec_header h1 {
+    font-size: 1.8em;
+  }
+
+  .sec_header p {
+    font-size: 1em;
+  }
+
+  .plan h2 {
+    font-size: 1.5em;
+  }
+
+  .plan .price {
+    font-size: 1.8em;
+  }
+
+  .plan {
+    width: 100%;
+  }
+
+  .navbar {
+    padding: 10px;
+  }
+
+  .navbar .logo {
+    font-size: 1.2rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links li {
+    margin-left: 0;
+    margin-bottom: 20px;  /* Increased margin for more spacing on mobile */
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+  }
+
+  .join-btn {
+    font-size: 0.9em;
+    padding: 8px 16px;
+  }
+}

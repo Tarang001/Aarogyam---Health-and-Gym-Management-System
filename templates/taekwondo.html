@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taekwondo Masters</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/taekwondo_styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+      <div class="logo">AAROGYAM</div>
+      <div class="nav-links">
+          <a href="/logged_in_home">HOME</a>
+          <a href="/login" class="get-started">GET STARTED</a>
+      </div>
+  </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content" data-aos="fade-up">
+            <h1>Master the Art of Taekwondo</h1>
+            <p>Discover the perfect blend of discipline, strength, and inner peace</p>
+            <button class="cta-button">Start Your Journey</button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-content">
+            <div class="about-text" data-aos="fade-right">
+                <h2>The Path of the Warrior</h2>
+                <p class="preview-text">Taekwondo is more than just a martial art - it's a way of life that teaches discipline, respect, and perseverance...</p>
+                <p class="full-text hidden">Taekwondo is more than just a martial art - it's a way of life that teaches discipline, respect, and perseverance. Originating from Korea, this dynamic martial art combines powerful kicks, precise strikes, and flowing movements to create a comprehensive system of self-defense and personal development.</p>
+                <button class="read-more">Read More</button>
+            </div>
+            <div class="about-image" data-aos="fade-left">
+                <img src="../static/resources/taekwondo.jpeg" alt="Taekwondo Master">
+            </div>
+        </div>
+    </section>
+
+    <!-- Tutorial Section -->
+    <section id="tutorials" class="tutorials">
+        <h2 data-aos="fade-up">Learn from the Masters</h2>
+        <div class="video-grid" id="videoContainer"></div>
+        <button id="viewAllBtn" class="view-all-btn">View All Tutorials</button>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="{{ url_for('static', filename='scripts/taekwondo_script.js') }}"></script>
+</body>
+</html>

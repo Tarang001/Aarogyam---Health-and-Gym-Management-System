@@ -1,0 +1,200 @@
+
+body {
+  background-color: var(--background-color);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Oswald:wght@500;700&display=swap');
+
+        :root {
+            --primary-color: #ff4d4d;
+            --secondary-color: #1a1a1a;
+            --accent-color: #F1FAEE;
+            --text-color: #457B9D; 
+            --background-color: #F1FAEE;
+            --light: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            font-family: 'Nunito', sans-serif;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Updated Navigation Styles */
+        nav {
+            background: #000000;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            height: 80px;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #ffffff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .nav-links .get-started {
+            background: #ffffff;
+            color: #000000;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .nav-links .get-started:hover {
+            background: #f0f0f0;
+            opacity: 1;
+        
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('../images/hero-bg.jpg') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.hero-content h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  animation: fadeInUp 1s ease;
+}
+
+/* About Section */
+.about {
+  padding: 5rem 2rem;
+}
+.about-content p {
+  font-size: medium;
+}
+.about-text { 
+  gap: 3rem;
+  font-size: 20px;
+}
+.about-text p {
+  gap:10px;
+  font-size: 12px;
+}
+
+.about-content {
+  display: flex;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.02);
+}
+
+/* Tutorial Section */
+.tutorials {
+  padding: 5rem 2rem;
+  background: var(--secondary-color);
+  color: white;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.video-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-content {
+      flex-direction: column;
+  }
+  
+  .nav-links {
+      display: none;
+  }
+  
+  .hamburger {
+      display: block;
+  }
+}
+
+/* Button Styles */
+.cta-button, .read-more, .view-all-btn {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  background: var(--primary-color);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.cta-button:hover, .read-more:hover, .view-all-btn:hover {
+  transform: translateY(-2px);
+  background: #d62839;
+}
